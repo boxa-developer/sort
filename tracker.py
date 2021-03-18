@@ -29,11 +29,11 @@ def drawLimit():
 def detectCar():
     global frame, detector_
     timer = cv2.getTickCount()
-    dets = detector_.drawBoxes(frame)
-    # print(dets)
-    track_bbox_ids = sort_tracker.update(np.array(dets))
-    print(track_bbox_ids)
-    # frame = detector_.drawBoxes(frame)
+    frame = detector_.drawBoxes(frame)
+    # # print(dets)
+    # for det in dets:
+    #     track_bbox_ids = sort_tracker.update(np.array(dets))
+    #     print(track_bbox_ids)
     fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer);
     cv2.putText(frame, "FPS : " + str(int(fps)), (250, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
 

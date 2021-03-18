@@ -73,26 +73,26 @@ class Detector:
                 if label == 'car':
                     dets.append(boxes[i] + [i])
                     # print(boxes[i]+[i])
-                    # x, y, w, h = boxes[i]
-                    #
-                    # color = colors[i]
-                    #
-                    # sX = x + w // 2 - dx
-                    # sY = y + h // 2 - dx
-                    # eX = x + w // 2 + dx
-                    # eY = y + h // 2 + dx
-                    #
-                    # # cv2.rectangle(frame, (sX, sY), (eX, eY), color, 1)
-                    # cv2.rectangle(frame, (x, y), (x + w, y + h), color, 1)
-                    # cv2.putText(frame, str(label), (sX, sY), cv2.FONT_HERSHEY_SIMPLEX, 1.75,
-                    #             (0, 255, 0), 1)
-                    # cv2.putText(frame, 'Detected Cars: {}'.format(str(len(indexes))), (250, 1210),
-                    #             cv2.FONT_HERSHEY_SIMPLEX, 1,
-                    #             (0, 0, 255), 2)
+                    x, y, w, h = boxes[i]
+
+                    color = colors[i]
+
+                    sX = x + w // 2 - dx
+                    sY = y + h // 2 - dx
+                    eX = x + w // 2 + dx
+                    eY = y + h // 2 + dx
+
+                    # cv2.rectangle(frame, (sX, sY), (eX, eY), color, 1)
+                    cv2.rectangle(frame, (x, y), (x + w, y + h), color, 1)
+                    cv2.putText(frame, str(label), (sX, sY), cv2.FONT_HERSHEY_SIMPLEX, 1.75,
+                                (0, 255, 0), 1)
+                    cv2.putText(frame, 'Detected Cars: {}'.format(str(len(indexes))), (250, 1210),
+                                cv2.FONT_HERSHEY_SIMPLEX, 1,
+                                (0, 0, 255), 2)
                     # # print()
                     # fps = cv2.getTickFrequency() / (cv2.getTickCount() - st)
                     # cv2.putText(frame, 'FPS: {}'.format(str(round(fps, 2))), (250, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255),
                     #             2)
                     # cv2.imshow("Frame", frame)
                     # cv2.waitKey(1)
-        return dets
+        return frame
